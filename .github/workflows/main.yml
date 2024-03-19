@@ -43,7 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   test:
     name: Test Node v${{ matrix.node }} and Webpack@${{ matrix.webpack }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         node: [ '10', '12', '14' ]
@@ -71,7 +71,7 @@ jobs:
     name: Release
     # Only run on "master" branch
     if: ${{ github.ref == 'refs/heads/master' }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     needs: [
       test,
       lint
